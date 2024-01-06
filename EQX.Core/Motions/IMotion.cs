@@ -24,6 +24,6 @@ namespace EQX.Core.Motions
         bool MoveInc(double position, double speed);
         bool MoveAbs(double position, double speed);
 
-        bool Stop(bool forceStop = false);
+        bool Stop(bool forceStop = true);
     }
 }

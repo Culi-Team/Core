@@ -11,6 +11,8 @@ namespace EQX.Core.Motions
         int Id { get; }
         string Name { get; }
 
+        bool IsConnected { get; }
+
         bool Connect();
         bool Disconnect();
 

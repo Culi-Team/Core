@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>ce53ecc2-ddd1-432d-b639-14bbd9d81a15</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>EQX.CoreShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\IHandleConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\IIdentifier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Motion\IMotion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Process\EProcessMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Process\EProcessStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Process\IProcess.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Vision\ICamera.cs" />
+  </ItemGroup>
+</Project>

@@ -2,7 +2,7 @@
 {
     public interface IIdentifier
     {
-        int Id { get; }
+        object Id { get; }
         string Name { get; }
     }
 }

@@ -1,8 +1,11 @@
 ﻿namespace EQX.Core.Common
 {
-    public interface IIdentifier
+    /// <summary>
+    /// Check if the Id and Name is null in Initializate
+    /// </summary>
+    public interface IIdentifier : IInitializable
     {
-        object Id { get; }
-        string Name { get; }
+        object Id { get; init; }
+        string Name { get; init; }
     }
 }

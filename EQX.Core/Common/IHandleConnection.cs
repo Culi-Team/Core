@@ -6,12 +6,7 @@
     public interface IHandleConnection
     {
         bool IsConnected { get; }
-
-        /// <summary>
-        /// Initialize setting before call the Connect function
-        /// </summary>
-        /// <returns>Initialize result</returns>
-        bool Initialize();
+        
         bool Connect();
         bool Disconnect();
     }

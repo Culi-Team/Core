@@ -4,6 +4,10 @@ namespace EQX.Core.Vision
 {
     public interface ICamera : IHandleConnection, IIdentifier
     {
-        byte[]? GrabSingle();
+        GrabData GrabSingle();
+
+        event EventHandler<GrabData> ContinuousImageGrabbed;
+        void ContinuousImageGrabStart();
+        void ContinuousImageGrabStop();
     }
 }

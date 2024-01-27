@@ -12,7 +12,7 @@
 
         public void Dispose()
         {
-            Dispose(disposing: true);
+            ImageBuffer = null;
             GC.SuppressFinalize(this);
         }
 
@@ -20,8 +20,6 @@
         {
             if (disposing)
             {
-                Array.Clear(ImageBuffer);
-                ImageBuffer = null;
             }
         }
     }

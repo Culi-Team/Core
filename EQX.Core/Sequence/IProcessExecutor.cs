@@ -3,16 +3,16 @@
     public interface IProcessExecutor
     {
         /// <summary>
-        /// Execute before main loop start
-        /// </summary>
-        /// <returns></returns>
-        bool PostProcess();
-
-        /// <summary>
-        /// Execute after main loop finish
+        /// Execute before main loop finish
         /// </summary>
         /// <returns>Return code</returns>
         bool PreProcess();
+
+        /// <summary>
+        /// Execute after main loop start
+        /// </summary>
+        /// <returns></returns>
+        bool PostProcess();
 
         /// <summary>
         /// Execute when <see cref="ProcessMode"/> is <see cref="EProcessMode.None"/>

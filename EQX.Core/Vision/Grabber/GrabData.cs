@@ -1,4 +1,4 @@
-﻿namespace EQX.Core.Vision
+﻿namespace EQX.Core.Vision.Grabber
 {
     public class GrabData : IDisposable
     {

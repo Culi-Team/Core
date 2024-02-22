@@ -1,6 +1,6 @@
 ﻿using EQX.Core.Common;
 
-namespace EQX.Core.Vision
+namespace EQX.Core.Vision.Grabber
 {
     public interface ICamera : IHandleConnection, IIdentifier
     {

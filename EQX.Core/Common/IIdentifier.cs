@@ -3,7 +3,7 @@
     /// <summary>
     /// Check if the Id and Name is null in Initializate
     /// </summary>
-    public interface IIdentifier : IInitializable
+    public interface IIdentifier
     {
         object Id { get; init; }
         string Name { get; init; }

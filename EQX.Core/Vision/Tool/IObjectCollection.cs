@@ -3,5 +3,6 @@
     public interface IObjectCollection
     {
         object? this[string key] { get; set; }
+        IEnumerable<string>? Keys { get; }
     }
 }

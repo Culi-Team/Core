@@ -5,7 +5,7 @@
     /// </summary>
     public interface IIdentifier
     {
-        object Id { get; init; }
+        int Id { get; init; }
         string Name { get; init; }
     }
 }

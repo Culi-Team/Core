@@ -4,6 +4,8 @@ namespace EQX.Core.Motion
 {
     public interface IMotion : IHandleConnection, IIdentifier
     {
+        bool Initialization();
+
         bool MotionOn();
         bool MotionOff();
 

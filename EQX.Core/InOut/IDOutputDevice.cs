@@ -8,5 +8,6 @@ namespace EQX.Core.InOut
     public interface IDOutputDevice : IIdentifier, IHandleConnection
     {
         bool this[int index] { get; set; }
+        List<DOutput> Outputs { get; }
     }
 }

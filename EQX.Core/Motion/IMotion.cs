@@ -4,6 +4,8 @@ namespace EQX.Core.Motion
 {
     public interface IMotion : IHandleConnection, IIdentifier
     {
+        IMotionStatus Status { get; }
+
         bool Initialization();
 
         bool MotionOn();
@@ -27,5 +29,7 @@ namespace EQX.Core.Motion
         bool MoveAbs(double position, double speed);
 
         bool Stop(bool forceStop = true);
+
+        bool AlarmReset();
     }
 }

@@ -5,6 +5,7 @@ namespace EQX.Core.Motion
     public interface IMotion : IHandleConnection, IIdentifier
     {
         IMotionStatus Status { get; }
+        IMotionParameter Parameter { get; }
 
         bool Initialization();
 

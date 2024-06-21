@@ -28,6 +28,8 @@ namespace EQX.Core.Motion
         /// <returns></returns>
         bool MoveAbs(double position, double speed);
 
+        void MoveJog(double speed, bool isForward);
+
         bool Stop(bool forceStop = true);
 
         bool AlarmReset();

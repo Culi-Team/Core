@@ -11,14 +11,17 @@
         /// </summary>
         uint Unit { get; set; }
 
+        /// <summary>
+        /// Motion max velocity
+        /// </summary>
         double MaxVelocity { get; set; }
 
         /// <summary>
-        /// Acceleration, it can be mm/s or msec
+        /// Acceleration, it can be mm/s or msec, depend on third party support
         /// </summary>
         double Acceleration { get; set; }
         /// <summary>
-        /// Deceleration, it can be mm/s or msec
+        /// Deceleration, it can be mm/s or msec, depend on third party support
         /// </summary>
         double Deceleration { get; set; }
     }

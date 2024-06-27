@@ -5,6 +5,11 @@ namespace EQX.Core.Sequence
     public interface IProcess<TESequence> : IIdentifier, IProcessExecutor where TESequence : Enum
     {
         /// <summary>
+        /// Set wait time for waiting before running next step
+        /// </summary>
+        int WaitTime { get; set; }
+
+        /// <summary>
         /// Parent process of current process. It may be null if it's the Root Process
         /// </summary>
         IProcess<TESequence>? Parent { get; }

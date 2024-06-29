@@ -2,8 +2,13 @@
 
 namespace EQX.Core.Vision.Tool
 {
+    public delegate void ToolRunCallback(string errorMessage, IObjectCollection outputs);
+
     public interface IVisionTool : IIdentifier, IRunable
     {
+        string ErrorMessage { get; }
+        ToolRunCallback ToolRunFinished { get; set; }
+
         IObjectCollection Parameters { get; }
 
         /// <summary>

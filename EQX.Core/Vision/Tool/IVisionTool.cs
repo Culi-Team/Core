@@ -4,7 +4,7 @@ namespace EQX.Core.Vision.Tool
 {
     public delegate void ToolRunCallback(string errorMessage, IObjectCollection outputs);
 
-    public interface IVisionTool : IIdentifier, IRunable
+    public interface IVisionTool : IIdentifier, IAsyncRunable
     {
         string ErrorMessage { get; }
         ToolRunCallback ToolRunFinished { get; set; }

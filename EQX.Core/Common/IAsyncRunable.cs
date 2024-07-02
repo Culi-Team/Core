@@ -3,6 +3,6 @@
     public interface IAsyncRunable
     {
         ERunState State { get; }
-        Task Run(int timeoutMs);
+        Task RunAsync(int timeoutMs);
     }
 }

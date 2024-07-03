@@ -1,8 +1,9 @@
 ﻿using EQX.Core.Common;
+using Newtonsoft.Json;
 
 namespace EQX.Core.Sequence
 {
-    public interface IProcess<TESequence> : IIdentifier, IProcessExecutor where TESequence : Enum
+    public interface IProcess<TESequence> : ILogable, IIdentifier, IProcessExecutor where TESequence : Enum
     {
         /// <summary>
         /// Set wait time for waiting before running next step
@@ -12,8 +13,10 @@ namespace EQX.Core.Sequence
         /// <summary>
         /// Parent process of current process. It may be null if it's the Root Process
         /// </summary>
+        [JsonIgnore]
         IProcess<TESequence>? Parent { get; }
 
+        [JsonIgnore]
         IList<IProcess<TESequence>>? Childs { get; }
 
         /// <summary>

@@ -3,6 +3,12 @@ using Newtonsoft.Json;
 
 namespace EQX.Core.Sequence
 {
+    public interface IProcessStep
+    {
+        int OriginStep { get; set; }
+        int RunStep { get; set; }
+    }
+
     public interface IProcess<TESequence> : ILogable, IIdentifier, IProcessExecutor where TESequence : Enum
     {
         /// <summary>

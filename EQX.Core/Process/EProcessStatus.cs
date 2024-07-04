@@ -8,7 +8,7 @@
         ToAlarmDone = 3,
         //AlarmDone,
         ToOriginDone = 5,
-        //OriginDone,
+        OriginDone,
         ToStopDone = 7,
         //StopDone,
         ToRunDone = 9,

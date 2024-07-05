@@ -42,9 +42,9 @@ namespace EQX.Core.Sequence
         EProcessStatus ProcessStatus { get; set; }
 
         /// <summary>
-        /// Current Step of the process
+        /// Step of the process
         /// </summary>
-        int Step { get; set; }
+        IProcessStep Step { get; set; }
         /// <summary>
         /// Client define RunMode (Sequence of the Automation Machine)<br/>
         /// For example: FirstInspect -> Pick -> SecondInspect -> Place...

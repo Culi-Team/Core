@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+using log4net;
 
 namespace EQX.Core.Common
 {
@@ -34,6 +35,7 @@ namespace EQX.Core.Common
             Port = port;
 
             tcpClient = new Socket(SocketType.Stream, ProtocolType.Tcp);
+            _log = LogManager.GetLogger(Name);
         }
 
         public bool Connect()
@@ -56,7 +58,7 @@ namespace EQX.Core.Common
             else
             {
                 tcpClient.Close();
-                Debug.WriteLine($"Failed to connect device {Name}.");
+                _log.Error($"Failed to connect device {Name}.");
                 return false;
             }
         }
@@ -141,5 +143,7 @@ namespace EQX.Core.Common
         }
 
         protected Socket tcpClient;
+
+        private readonly ILog _log;
     }
 }

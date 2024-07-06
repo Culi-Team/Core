@@ -1,4 +1,6 @@
-﻿namespace EQX.Core.Vision.Tool
+﻿using Newtonsoft.Json;
+
+namespace EQX.Core.Vision.Tool
 {
     public class VisionToolConnection
     {
@@ -12,6 +14,7 @@
         {
         }
 
+        [JsonConstructor]
         public VisionToolConnection(int originToolId, int targetToolId, string originKey, string targetKey)
         {
             OriginToolId = originToolId;

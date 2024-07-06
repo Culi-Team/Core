@@ -7,5 +7,6 @@ namespace EQX.Core.Vision.Tool
     {
         ObservableCollection<IVisionTool> VisionTools { get; }
         ObservableCollection<VisionToolConnection> VisionToolConnections { get; }
+        void Save();
     }
 }

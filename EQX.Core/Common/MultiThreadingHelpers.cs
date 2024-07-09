@@ -1,10 +1,4 @@
-﻿using log4net.Appender;
-using log4net.Core;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Globalization;
-
-namespace EQX.Core.Common
+﻿namespace EQX.Core.Common
 {
     public static class MultiThreadingHelpers
     {

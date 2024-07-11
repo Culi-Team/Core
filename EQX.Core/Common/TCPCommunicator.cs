@@ -111,6 +111,8 @@ namespace EQX.Core.Common
 
         public string ReadTo(string endOfData, int timeoutMs = 5000)
         {
+            if (tcpClient.Connected == false) return string.Empty;
+
             int startMs = Environment.TickCount;
 
             string data = string.Empty;

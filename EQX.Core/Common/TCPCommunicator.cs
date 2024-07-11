@@ -51,7 +51,6 @@ namespace EQX.Core.Common
             }
             else
             {
-                tcpClient.Close();
                 _log.Error($"Failed to connect device {Name}.");
                 return false;
             }

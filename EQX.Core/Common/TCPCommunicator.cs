@@ -36,8 +36,7 @@ namespace EQX.Core.Common
         {
             if (tcpClient.Connected)
             {
-                tcpClient.Close();
-                tcpClient = new Socket(SocketType.Stream, ProtocolType.Tcp);
+                CloseSocket();
             }
 
             IAsyncResult result = tcpClient.BeginConnect(IPAddress, Port, null, null);
@@ -51,14 +50,23 @@ namespace EQX.Core.Common
             }
             else
             {
+                CloseSocket();
+
                 _log.Error($"Failed to connect device {Name}.");
                 return false;
             }
         }
 
+        private void CloseSocket()
+        {
+            // Close current connection, then initialize object for next try
+            tcpClient.Close();
+            tcpClient = new Socket(SocketType.Stream, ProtocolType.Tcp);
+        }
+
         public bool Disconnect()
         {
-            tcpClient.Close();
+            CloseSocket();
 
             return !tcpClient.Connected;
         }

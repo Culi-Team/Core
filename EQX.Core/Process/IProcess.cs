@@ -3,11 +3,7 @@ using Newtonsoft.Json;
 
 namespace EQX.Core.Sequence
 {
-    public interface IProcessStep
-    {
-        int OriginStep { get; set; }
-        int RunStep { get; set; }
-    }
+    public delegate void SetAlarmEventHandler(int alarmId);
 
     public interface IProcess<TESequence> : ILogable, IIdentifier, IProcessExecutor where TESequence : Enum
     {
@@ -53,5 +49,8 @@ namespace EQX.Core.Sequence
 
         bool Start();
         bool Stop();
+
+        public event SetAlarmEventHandler? AlarmRaised;
+        void RaiseAlarm(int alarmId);
     }
 }

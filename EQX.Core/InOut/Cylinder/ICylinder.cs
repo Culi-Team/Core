@@ -11,7 +11,7 @@ namespace EQX.Core.InOut
     {
         bool IsForward { get; }
         bool IsBackward { get; }
-        void MoveForward();
-        void MoveBackward();
+        void Forward();
+        void Backward();
     }
 }

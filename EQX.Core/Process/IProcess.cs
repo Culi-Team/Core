@@ -8,11 +8,6 @@ namespace EQX.Core.Sequence
     public interface IProcess<TESequence> : ILogable, IIdentifier, IProcessExecutor where TESequence : Enum
     {
         /// <summary>
-        /// Set wait time for waiting before running next step
-        /// </summary>
-        int WaitTime { get; set; }
-
-        /// <summary>
         /// Parent process of current process. It may be null if it's the Root Process
         /// </summary>
         [JsonIgnore]
@@ -40,7 +35,8 @@ namespace EQX.Core.Sequence
         /// <summary>
         /// Step of the process
         /// </summary>
-        IProcessStep Step { get; set; }
+        IProcessStep Step { get; }
+        IProcessTimer ProcessTimer { get; }
         /// <summary>
         /// Client define RunMode (Sequence of the Automation Machine)<br/>
         /// For example: FirstInspect -> Pick -> SecondInspect -> Place...
@@ -50,7 +46,19 @@ namespace EQX.Core.Sequence
         bool Start();
         bool Stop();
 
-        public event SetAlarmEventHandler? AlarmRaised;
+        event SetAlarmEventHandler? AlarmRaised;
         void RaiseAlarm(int alarmId);
+
+        /// <summary>
+        /// Process wait for exactly timeout
+        /// </summary>
+        /// <param name="timeout">time to wait (ms)</param>
+        void Wait(int timeout);
+        /// <summary>
+        /// Process wait for which come first, exactly timeout or action return true
+        /// </summary>
+        /// <param name="timeout">time to wait (ms)</param>
+        /// <param name="waitUntil">Action return true will break waiting</param>
+        void Wait(int timeout, Func<bool> waitUntil);
     }
 }

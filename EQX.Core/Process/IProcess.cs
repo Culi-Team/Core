@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace EQX.Core.Sequence
 {
-    public delegate void SetAlarmEventHandler(int alarmId);
+    public delegate void SetAlarmEventHandler(int alarmId, string alarmSource);
 
     public interface IProcess<TESequence> : ILogable, IIdentifier, IProcessExecutor where TESequence : Enum
     {
@@ -48,6 +48,7 @@ namespace EQX.Core.Sequence
 
         event SetAlarmEventHandler? AlarmRaised;
         void RaiseAlarm(int alarmId);
+        void RaiseAlarm(int alarmId, string alarmSource);
 
         /// <summary>
         /// Process wait for exactly timeout

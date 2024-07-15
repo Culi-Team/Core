@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EQX.Core.InOut
 {
-    public interface ICylinder
+    public interface ICylinder : IIdentifier
     {
         bool IsForward { get; }
         bool IsBackward { get; }

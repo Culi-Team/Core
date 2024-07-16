@@ -4,6 +4,7 @@
     {
         Idle,
         Running,
+        RuntimeError,
         Done
     }
 }

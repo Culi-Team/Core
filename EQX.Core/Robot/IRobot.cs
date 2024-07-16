@@ -18,6 +18,7 @@ namespace EQX.Core.Robot
         /// <param name="timeoutMs">Time out in millisecond</param>
         /// <returns></returns>
         string ReadResponse(int timeoutMs);
+        bool ReadResponse(int timeoutMs, string expectedResponse);
         /// <summary>
         /// Read response from Robot asynchronous
         /// </summary>

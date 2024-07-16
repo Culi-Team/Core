@@ -8,6 +8,7 @@ namespace EQX.Core.Vision.Flow
     {
         ObservableCollection<IVisionTool> VisionTools { get; }
         ObservableCollection<VisionToolConnection> VisionToolConnections { get; }
+        IObjectCollection Outputs { get; }
         void Save();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace EQX.Core.Units
     public class Tray<TECellStatus> : ITray<TECellStatus> where TECellStatus : Enum
     {
         #region Properties
+        [JsonIgnore]
         public TECellStatus this[uint index]
         {
             get
@@ -35,6 +37,7 @@ namespace EQX.Core.Units
         {
             Name = name;
         }
+       
         #endregion
 
         #region Public methods

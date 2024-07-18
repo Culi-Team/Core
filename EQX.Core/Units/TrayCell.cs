@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Newtonsoft.Json;
 using System.Windows.Input;
 
 namespace EQX.Core.Units
@@ -7,7 +8,7 @@ namespace EQX.Core.Units
     public class TrayCell<TECellStatus> : ObservableObject, ITrayCell<TECellStatus> where TECellStatus : Enum
     {
         public event CellClickedEventHandler<TECellStatus> CellClicked;
-
+        [JsonIgnore]
         public ICommand CellClickedCommand { get; }
 
         public TECellStatus Status { get; set; }

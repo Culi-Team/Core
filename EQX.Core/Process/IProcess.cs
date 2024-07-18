@@ -5,7 +5,7 @@ namespace EQX.Core.Sequence
 {
     public delegate void SetAlarmEventHandler(int alarmId, string alarmSource);
 
-    public interface IProcess<TESequence> : ILogable, IIdentifier, IProcessExecutor where TESequence : Enum
+    public interface IProcess<TESequence> : ILogable, INameable, IProcessExecutor where TESequence : Enum
     {
         /// <summary>
         /// Parent process of current process. It may be null if it's the Root Process

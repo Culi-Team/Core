@@ -37,5 +37,7 @@ namespace EQX.Core.Units
         /// <param name="index">Index of cell</param>
         /// <returns>Column of the cell</returns>
         int GetColumn(int index);
+
+        void GenerateCells();
     }
 }

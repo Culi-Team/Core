@@ -13,5 +13,7 @@ namespace EQX.Core.Recipe
         public string Description { get; set; }
         public string Unit { get; set; }
         public bool IsSpacer { get; set; } = false;
+        public string Detail { get; set; }
+
     }
 }

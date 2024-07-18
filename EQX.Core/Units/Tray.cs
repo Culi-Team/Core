@@ -9,6 +9,7 @@ namespace EQX.Core.Units
 {
     public class Tray<TECellStatus> : ITray<TECellStatus> where TECellStatus : Enum
     {
+        #region Properties
         public TECellStatus this[uint index]
         {
             get
@@ -27,12 +28,16 @@ namespace EQX.Core.Units
         public int Columns { get; set; }
         public ETrayOrientation Orientation { get; set; }
         public IList<ITrayCell<TECellStatus>> Cells { get; set; }
+        #endregion
 
+        #region Constructor(s)
         public Tray(string name)
         {
             Name = name;
         }
+        #endregion
 
+        #region Public methods
         public int GetColumn(int index)
         {
             return (index - 1) % Columns + 1;
@@ -89,6 +94,7 @@ namespace EQX.Core.Units
                     break;
             }
         }
+        #endregion
 
         #region Privates
         #endregion

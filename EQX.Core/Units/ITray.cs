@@ -4,7 +4,7 @@ namespace EQX.Core.Units
 {
     public interface ITray<TECellStatus> : INameable where TECellStatus : Enum
     {
-        TECellStatus this[int index] { get; set; }
+        TECellStatus this[uint index] { get; set; }
 
         /// <summary>
         /// Total row count

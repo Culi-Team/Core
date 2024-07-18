@@ -9,15 +9,15 @@ namespace EQX.Core.Units
 {
     public class Tray<TECellStatus> : ITray<TECellStatus> where TECellStatus : Enum
     {
-        public TECellStatus this[int index]
+        public TECellStatus this[uint index]
         {
             get
             {
-                return Cells[index].Status;
+                return Cells.First(c => c.Id == index).Status;
             }
             set
             {
-                Cells[index].Status = value;
+                Cells.First(c => c.Id == index).Status = value;
             }
         }
 
@@ -54,7 +54,7 @@ namespace EQX.Core.Units
                     {
                         for (int c = 1; c <= Columns; c++)
                         {
-                            Cells.Add(new TrayCell<TECellStatus>(Columns * (r - 1) + c));
+                            Cells.Add(new TrayCell<TECellStatus>((uint)(Columns * (r - 1) + c)));
                         }
                     }
                     break;
@@ -63,7 +63,7 @@ namespace EQX.Core.Units
                     {
                         for (int c = Columns; c >= 1; c--)
                         {
-                            Cells.Add(new TrayCell<TECellStatus>(Columns * (r - 1) + c));
+                            Cells.Add(new TrayCell<TECellStatus>((uint)(Columns * (r - 1) + c)));
                         }
                     }
                     break;
@@ -72,7 +72,7 @@ namespace EQX.Core.Units
                     {
                         for (int c = 1; c <= Columns; c++)
                         {
-                            Cells.Add(new TrayCell<TECellStatus>(Columns * (r - 1) + c));
+                            Cells.Add(new TrayCell<TECellStatus>((uint)(Columns * (r - 1) + c)));
                         }
                     }
                     break;
@@ -81,7 +81,7 @@ namespace EQX.Core.Units
                     {
                         for (int c = Columns; c >= 1; c--)
                         {
-                            Cells.Add(new TrayCell<TECellStatus>(Columns * (r - 1) + c));
+                            Cells.Add(new TrayCell<TECellStatus>((uint)(Columns * (r - 1) + c)));
                         }
                     }
                     break;

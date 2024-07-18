@@ -9,5 +9,7 @@ namespace EQX.Core.Vision.Grabber
         event EventHandler<GrabData> ContinuousImageGrabbed;
         void ContinuousImageGrabStart();
         void ContinuousImageGrabStop();
+
+        double ExposureTime { get; set; }
     }
 }

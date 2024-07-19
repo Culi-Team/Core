@@ -20,6 +20,8 @@ namespace EQX.Core.Recipe
 
             foreach (PropertyInfo property in properties)
             {
+                if (property.SetMethod == null) continue;
+
                 object sourceValue = property.GetValue(sourceRecipe, null);
                 property.SetValue(targetRecipe, sourceValue);
             }

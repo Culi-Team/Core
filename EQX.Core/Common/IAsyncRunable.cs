@@ -4,5 +4,6 @@
     {
         ERunState State { get; }
         Task RunAsync(int timeoutMs);
+        long ExecuteTime { get; }
     }
 }

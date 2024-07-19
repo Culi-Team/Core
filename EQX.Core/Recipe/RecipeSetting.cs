@@ -1,8 +1,20 @@
-﻿namespace EQX.Core.Recipe
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace EQX.Core.Recipe
 {
-    public class RecipeSetting
+    public class RecipeSetting : ObservableObject
     {
-        public string CurrentRecipe { get; set; }
+        private string currentRecipe;
+
+        public string CurrentRecipe
+        {
+            get => currentRecipe;
+            set
+            {
+                currentRecipe = value;
+                OnPropertyChanged(nameof(CurrentRecipe));
+            }
+        }
 
         public RecipeSetting()
         {

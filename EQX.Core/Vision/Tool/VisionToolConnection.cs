@@ -7,7 +7,7 @@ namespace EQX.Core.Vision.Tool
         public int OriginToolId { get; }
         public int TargetToolId { get; }
         public string OriginKey { get; }
-        public string TargetKey { get; }
+        public string TargetKey { get; set; }
 
         public VisionToolConnection(int originToolId, int targetToolId, string key)
             : this(originToolId, targetToolId, key, key)

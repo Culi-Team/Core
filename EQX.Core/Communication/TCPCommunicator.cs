@@ -2,8 +2,9 @@
 using System.Net;
 using System.Text;
 using log4net;
+using EQX.Core.Common;
 
-namespace EQX.Core.Common
+namespace EQX.Core.Communication
 {
     public class TCPCommunicator : IHandleConnection, IIdentifier
     {

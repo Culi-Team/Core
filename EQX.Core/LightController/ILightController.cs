@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace EQX.Core.LightController
 {
-    public interface ILightController : IIdentifier, ILogable
+    public interface ILightController : IIdentifier, IHandleConnection
     {
-        int NumberOfChannel { get; set; }
-        bool Open();
-        void Close();
         void SetLightLevel(int channel, int value);
         void SetLightStatus(int channel, bool bOnOff);
 

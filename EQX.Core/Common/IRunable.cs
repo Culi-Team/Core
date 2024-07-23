@@ -1,6 +1,6 @@
 ﻿namespace EQX.Core.Common
 {
-    public interface IRunable
+    public interface IRunnable
     {
         ERunState State { get; }
         void Run();

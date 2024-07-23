@@ -1,6 +1,6 @@
 ﻿namespace EQX.Core.Common
 {
-    public interface IAsyncRunable
+    public interface IAsyncRunnable
     {
         ERunState State { get; }
         Task RunAsync(int timeoutMs);

@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 namespace EQX.Core.Vision.Flow
 {
     public delegate void VisionFlowRunFinishedHandler(object sender, IObjectCollection result);
-    public interface IVisionFlow : IIdentifier, IAsyncRunable
+    public interface IVisionFlow : IIdentifier, IAsyncRunnable
     {
         ObservableCollection<IVisionTool> VisionTools { get; }
         ObservableCollection<VisionToolConnection> VisionToolConnections { get; }

@@ -11,7 +11,18 @@ namespace EQX.Core.Units
         [JsonIgnore]
         public ICommand CellClickedCommand { get; }
 
-        public TECellStatus Status { get; set; }
+        public TECellStatus Status 
+        {
+            get
+            {
+                return _status;
+            }
+            set
+            {
+                _status = value;
+                OnPropertyChanged(nameof(Status));
+            }
+        }
         public int Id { get; }
 
         public TrayCell(uint id)
@@ -24,5 +35,7 @@ namespace EQX.Core.Units
                 OnPropertyChanged(nameof(Status));
             });
         }
+
+        private TECellStatus _status;
     }
 }

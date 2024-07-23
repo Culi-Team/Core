@@ -1,8 +1,7 @@
 ﻿using EQX.Core.Common;
-using EQX.Core.Vision.Tool;
 using System.Collections.ObjectModel;
 
-namespace EQX.Core.Vision.Flow
+namespace EQX.Core.Vision.Algorithms
 {
     public delegate void VisionFlowRunFinishedHandler(object sender, IObjectCollection result);
     public interface IVisionFlow : IIdentifier, IAsyncRunnable

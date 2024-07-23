@@ -1,6 +1,4 @@
-﻿using EQX.Core.Vision.Tool;
-
-namespace EQX.Core.Vision
+﻿namespace EQX.Core.Vision.Algorithms
 {
     public interface IVisionToolRepository
     {

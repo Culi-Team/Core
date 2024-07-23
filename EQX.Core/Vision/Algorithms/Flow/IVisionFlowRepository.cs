@@ -1,4 +1,4 @@
-﻿namespace EQX.Core.Vision.Flow
+﻿namespace EQX.Core.Vision.Algorithms
 {
     public interface IVisionFlowRepository
     {

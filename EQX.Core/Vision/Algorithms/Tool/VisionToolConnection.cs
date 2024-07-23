@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace EQX.Core.Vision.Tool
+namespace EQX.Core.Vision.Algorithms
 {
     public class VisionToolConnection
     {

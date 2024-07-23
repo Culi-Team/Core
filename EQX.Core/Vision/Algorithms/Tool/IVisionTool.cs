@@ -1,6 +1,6 @@
 ﻿using EQX.Core.Common;
 
-namespace EQX.Core.Vision.Tool
+namespace EQX.Core.Vision.Algorithms
 {
     public delegate void ToolRunCallback(string errorMessage, IObjectCollection outputs);
 

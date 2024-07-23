@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace EQX.Core.Vision.Tool
+namespace EQX.Core.Vision.Algorithms
 {
     public interface IObjectCollection
     {

@@ -12,6 +12,11 @@
         uint Unit { get; set; }
 
         /// <summary>
+        /// Motion (default) work velocity
+        /// </summary>
+        double Velocity { get; set; }
+
+        /// <summary>
         /// Motion max velocity
         /// </summary>
         double MaxVelocity { get; set; }

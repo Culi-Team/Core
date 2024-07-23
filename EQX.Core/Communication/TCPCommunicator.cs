@@ -6,6 +6,7 @@ using EQX.Core.Common;
 
 namespace EQX.Core.Communication
 {
+
     public class TCPCommunicator : IHandleConnection, IIdentifier
     {
         public int Id { get; init; }

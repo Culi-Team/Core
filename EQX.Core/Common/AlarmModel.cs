@@ -2,16 +2,16 @@
 
 namespace EQX.Core.Common
 {
-    public class AlarmModel
+    public class AlertModel
     {
         public int Id { get; set; }
         public string Message { get; set; }
 
-        public string AlarmOverviewSource { get; set; }
-        public Rectangle AlarmOverviewHighlightRectangle { get; set; }
+        public string AlertOverviewSource { get; set; }
+        public Rectangle AlertOverviewHighlightRectangle { get; set; }
 
-        public string AlarmDetailviewSource { get; set; }
-        public Rectangle AlarmDetailviewHighlightRectangle { get; set; }
+        public string AlertDetailviewSource { get; set; }
+        public Rectangle AlertDetailviewHighlightRectangle { get; set; }
 
         public List<string> TroubleshootingSteps { get; set; }
     }

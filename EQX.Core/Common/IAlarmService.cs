@@ -1,7 +1,7 @@
 ﻿namespace EQX.Core.Common
 {
-    public interface IAlarmService
+    public interface IAlertService
     {
-        AlarmModel GetById(int alarmId);
+        AlertModel GetById(int alarmId);
     }
 }

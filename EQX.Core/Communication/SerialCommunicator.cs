@@ -24,13 +24,22 @@ namespace EQX.Core.Communication
             Id = id;
             Name = name;
 
-            serialPort = new SerialPort(comPort, baudRate, parity, dataBits, stopBits);
+            _comPort = comPort;
+            _baudRate = baudRate;
+            _parity = parity;
+            _dataBits = dataBits;
+            _stopBits = stopBits;
         }
 
         public bool Connect()
         {
             try
             {
+                if (serialPort == null)
+                {
+                    serialPort = new SerialPort(_comPort, _baudRate, _parity, _dataBits, _stopBits);
+                }
+
                 serialPort.Open();
                 return true;
             }
@@ -60,6 +69,13 @@ namespace EQX.Core.Communication
             serialPort.WriteLine(message);
         }
 
+        #region Privates
         private SerialPort serialPort;
+        private readonly string _comPort;
+        private readonly int _baudRate;
+        private readonly Parity _parity;
+        private readonly int _dataBits;
+        private readonly StopBits _stopBits;
+        #endregion
     }
 }

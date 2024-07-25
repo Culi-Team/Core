@@ -14,6 +14,7 @@ namespace EQX.Core.Motion
 
         bool SearchOrigin();
 
+        bool MoveInc(double position);
         /// <summary>
         /// Move increase position
         /// </summary>
@@ -21,6 +22,7 @@ namespace EQX.Core.Motion
         /// <param name="speed">Unit: mm/s</param>
         /// <returns></returns>
         bool MoveInc(double position, double speed);
+        bool MoveAbs(double position);
         /// <summary>
         /// Move absolute position
         /// </summary>

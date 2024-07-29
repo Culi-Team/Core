@@ -123,20 +123,26 @@ namespace EQX.Core.Communication
             while (true)
             {
                 bytes = new byte[1024];
-
-                int bytesRec = tcpClient.Receive(bytes);
-                data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                if (data.IndexOf(endOfData) > -1)
+                if (tcpClient.Available > 0)
                 {
-                    return data;
-                }
+                    int bytesRec = tcpClient.Receive(bytes);
+                    data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                    if (data.IndexOf(endOfData) > -1)
+                    {
+                        return data;
+                    }
 
-                if (Environment.TickCount - startMs > timeoutMs)
+                    if (Environment.TickCount - startMs > timeoutMs)
+                    {
+                        return string.Empty;
+                    }
+
+                    Thread.Sleep(2);
+                }
+                else
                 {
                     return string.Empty;
                 }
-
-                Thread.Sleep(2);
             }
         }
 

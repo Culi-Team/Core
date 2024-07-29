@@ -4,6 +4,8 @@ namespace EQX.Core.Vision.Grabber
 {
     public interface ICamera : IHandleConnection, IIdentifier
     {
+        bool Initialization();
+
         GrabData GrabSingle();
 
         event EventHandler<GrabData> ContinuousImageGrabbed;

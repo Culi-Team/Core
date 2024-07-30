@@ -36,5 +36,6 @@ namespace EQX.Core.Motion
         bool Stop(bool forceStop = true);
 
         bool AlarmReset();
+        bool IsOnPosition(double dPosition);
     }
 }

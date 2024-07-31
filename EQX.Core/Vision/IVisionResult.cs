@@ -1,9 +1,4 @@
 ﻿using OpenCvSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EQX.Core.Vision
 {
@@ -17,5 +12,6 @@ namespace EQX.Core.Vision
         EVisionJudge Judge { get; }
         Action<Mat> DrawAction { get; set; }
         string ToString();
+        void Pixel2mm(double pixelSize);
     }
 }

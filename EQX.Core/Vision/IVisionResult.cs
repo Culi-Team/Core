@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenCvSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,6 @@ namespace EQX.Core.Vision
     public interface IVisionResult
     {
         EVisionJudge Judge { get; }
+        Action<Mat> DrawAction { get; set; }
     }
 }

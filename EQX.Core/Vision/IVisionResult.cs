@@ -16,5 +16,6 @@ namespace EQX.Core.Vision
     {
         EVisionJudge Judge { get; }
         Action<Mat> DrawAction { get; set; }
+        string ToString();
     }
 }

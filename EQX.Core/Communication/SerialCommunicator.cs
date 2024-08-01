@@ -69,6 +69,20 @@ namespace EQX.Core.Communication
             serialPort.WriteLine(message);
         }
 
+        public string ReadLine()
+        {
+            return serialPort.ReadLine();
+        }
+
+        public string Read()
+        {
+            int bytes = serialPort.BytesToRead;
+
+            byte[] buffer = new byte[bytes];
+            serialPort.Read(buffer, 0, bytes);
+
+            return System.Text.Encoding.Default.GetString(buffer);
+        }
         #region Privates
         private SerialPort serialPort;
         private readonly string _comPort;

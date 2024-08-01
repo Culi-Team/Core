@@ -9,8 +9,8 @@ namespace EQX.Core.LightController
 {
     public interface ILightController : IIdentifier, IHandleConnection
     {
-        void SetLightLevel(int channel, int value);
-        void SetLightStatus(int channel, bool bOnOff);
+        bool SetLightLevel(int channel, int value);
+        bool SetLightStatus(int channel, bool bOnOff);
 
         int GetLightLevel(int channel);
         bool GetLightStatus(int channel);

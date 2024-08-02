@@ -3,11 +3,12 @@ using System.Net;
 using System.Text;
 using log4net;
 using EQX.Core.Common;
+using System.Drawing;
+using System;
 
 namespace EQX.Core.Communication
 {
-
-    public class TCPCommunicator : IHandleConnection, IIdentifier
+    public class TCPBasicCommunicator : IHandleConnection, IIdentifier
     {
         public int Id { get; init; }
         public string Name { get; init; }
@@ -23,7 +24,7 @@ namespace EQX.Core.Communication
         public IPAddress IPAddress { get; protected set; }
         public int Port { get; protected set; }
 
-        public TCPCommunicator(int index, string name, IPAddress iPAddress, int port)
+        public TCPBasicCommunicator(int index, string name, IPAddress iPAddress, int port)
         {
             Id = index;
             Name = name;
@@ -73,6 +74,13 @@ namespace EQX.Core.Communication
             return !tcpClient.Connected;
         }
 
+        public bool SendData(string data)
+        {
+            byte[] buffer = Encoding.ASCII.GetBytes(data);
+
+            return SendData(buffer, buffer.Length);
+        }
+
         public bool SendData(byte[] buffer, int size)
         {
             if (tcpClient.Connected == false) return false;
@@ -80,35 +88,6 @@ namespace EQX.Core.Communication
             int sendByte = tcpClient.Send(buffer, size, SocketFlags.None);
 
             return sendByte == size;
-        }
-
-        public async Task<string> ReadToAsync(string endOfData, int timeoutMs = 5000)
-        {
-            if (tcpClient.Connected == false) return string.Empty;
-
-            int startMs = Environment.TickCount;
-
-            string data = string.Empty;
-            byte[] bytes;
-
-            while (true)
-            {
-                bytes = new byte[1024];
-
-                int bytesRec = tcpClient.Receive(bytes);
-                data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                if (data.IndexOf(endOfData) > -1)
-                {
-                    return data;
-                }
-
-                if (Environment.TickCount - startMs > timeoutMs)
-                {
-                    return string.Empty;
-                }
-
-                await Task.Delay(2);
-            }
         }
 
         public string ReadTo(string endOfData, int timeoutMs = 5000)

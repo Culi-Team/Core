@@ -129,7 +129,11 @@ namespace EQX.Core.Communication
 
         public string ReadTo(string endOfData, int timeoutMs = 5000)
         {
-            if (tcpClient.IsConnected == false) return string.Empty;
+            if (tcpClient.IsConnected == false)
+            {
+                throw new Exception("tcpClient.IsConnected == false");
+                //return string.Empty;
+            }
             int startMs = Environment.TickCount;
 
             // Clear receivedData from server reading new Data
@@ -139,6 +143,7 @@ namespace EQX.Core.Communication
             {
                 if (Environment.TickCount - startMs > timeoutMs)
                 {
+                    _log.Error($"ReadTo {endOfData.Replace("\r\n", "\"\\r\\n\"")} timeout {Environment.TickCount - startMs}ms");
                     return string.Empty;
                 }
 

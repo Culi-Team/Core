@@ -112,6 +112,7 @@ namespace EQX.Core.Communication
 
             try
             {
+                _log.Info($"Sending {data.Replace("\r\n", "\\r\\n")}");
                 tcpClient.Send(data);
                 return true;
             }

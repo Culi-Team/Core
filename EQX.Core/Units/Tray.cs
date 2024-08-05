@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EQX.Core.Units
 {
-    public class Tray<TECellStatus> : ITray<TECellStatus> where TECellStatus : Enum
+    public class Tray<TECellStatus> : INotifyPropertyChanged, ITray<TECellStatus> where TECellStatus : Enum
     {
         #region Properties
         [JsonIgnore]
@@ -26,8 +27,34 @@ namespace EQX.Core.Units
 
         public string Name { get; }
 
-        public int Rows { get; set; }
-        public int Columns { get; set; }
+        private int rows;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        private void OnPropertyChanged(string PropertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+        }
+
+        public int Rows
+        {
+            get => rows;
+            set
+            {
+                rows = value;
+                OnPropertyChanged(nameof(Rows));
+            }
+        }
+        private int cols;
+
+        public int Columns
+        {
+            get => cols;
+            set
+            {
+                cols = value;
+                OnPropertyChanged(nameof(Columns));
+            }
+        }
         public ETrayOrientation Orientation { get; set; }
         public IList<ITrayCell<TECellStatus>> Cells { get; set; }
         #endregion
@@ -54,7 +81,6 @@ namespace EQX.Core.Units
         public void GenerateCells()
         {
             Cells = new ObservableCollection<ITrayCell<TECellStatus>>();
-
             switch (Orientation)
             {
                 case ETrayOrientation.TopLeft:
@@ -96,6 +122,7 @@ namespace EQX.Core.Units
                 default:
                     break;
             }
+            OnPropertyChanged(nameof(Cells));
         }
         #endregion
 

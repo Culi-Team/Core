@@ -41,7 +41,7 @@ namespace EQX.Core.Communication
             {
                 CloseSocket();
             }
-
+            
             IAsyncResult result = tcpClient.BeginConnect(IPAddress, Port, null, null);
 
             bool success = result.AsyncWaitHandle.WaitOne(2000, true);

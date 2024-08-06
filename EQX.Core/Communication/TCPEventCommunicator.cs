@@ -4,6 +4,7 @@ using System.Text;
 using log4net;
 using EQX.Core.Common;
 using SuperSimpleTcp;
+using System.Threading;
 
 namespace EQX.Core.Communication
 {
@@ -58,16 +59,20 @@ namespace EQX.Core.Communication
         private void CloseSocket()
         {
             // Close current connection
-            tcpClient.Disconnect();
+            TCPClientHelpers.DisposeClient(IPAddress, (uint)Port);
         }
 
         private void ClientInit()
         {
-            tcpClient = new SimpleTcpClient(IPAddress, Port);
-            tcpClient.Events.DataSent += Events_DataSent;
-            tcpClient.Events.Connected += Events_Connected;
-            tcpClient.Events.Disconnected += Events_Disconnected;
-            tcpClient.Events.DataReceived += Events_DataReceived;
+            if (TCPClientHelpers.GetClient(IPAddress, (uint)Port) == null)
+                TCPClientHelpers.AddClient(IPAddress, (uint)Port);
+
+            tcpClient = TCPClientHelpers.GetClient(IPAddress, (uint)Port);
+
+            tcpClient!.Events.DataSent += Events_DataSent;
+            tcpClient!.Events.Connected += Events_Connected;
+            tcpClient!.Events.Disconnected += Events_Disconnected;
+            tcpClient!.Events.DataReceived += Events_DataReceived;
         }
 
         private void Events_DataReceived(object? sender, DataReceivedEventArgs e)
@@ -156,6 +161,30 @@ namespace EQX.Core.Communication
 
                 if (receivedData.EndsWith(endOfData) == false) return string.Empty;
                 else return receivedData;
+            }
+        }
+
+        public int ReadData(ref byte[] buffer)
+        {
+            int startMs = Environment.TickCount;
+
+            while (true)
+            {
+                if (Environment.TickCount - startMs > 100)
+                {
+                    buffer = new byte[] { };
+                }
+
+                if (string.IsNullOrEmpty(receivedData) == false)
+                {
+                    buffer = Encoding.ASCII.GetBytes(receivedData);
+                }
+                else
+                {
+                    Thread.Sleep(2);
+                    continue;
+                }
+
             }
         }
 

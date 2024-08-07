@@ -51,6 +51,7 @@ namespace EQX.Core.Communication
 
         public bool Disconnect()
         {
+            if (serialPort == null) return true;
             if (serialPort.IsOpen)
             {
                 serialPort.Close();

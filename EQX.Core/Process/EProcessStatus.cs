@@ -12,7 +12,5 @@
         ToStopDone = 7,
         //StopDone,
         ToRunDone = 9,
-
-        Ready = 11
     }
 }

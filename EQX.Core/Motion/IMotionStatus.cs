@@ -3,7 +3,7 @@
     public interface IMotionStatus
     {
         bool IsAlarm { get; }
-
+        bool IsConnected {  get; }
         bool IsMotionOn { get; }
         bool IsHomeDone { get; }
         bool IsMotioning { get; }

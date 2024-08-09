@@ -2,15 +2,16 @@
 {
     public class ActionAssignableTimer
     {
-        public string Name { get; }
-
-        public ActionAssignableTimer()
+        public ActionAssignableTimer(int intervalMs)
         {
+            _intervalMs = intervalMs;
             phase1Actions = new Dictionary<string, Action>();
             phase2Actions = new Dictionary<string, Action>();
+
+            StartTimer(intervalMs);
         }
 
-        public void StartTimer(int intervalMs)
+        private void StartTimer(int intervalMs)
         {
             if (timer != null && timer.Enabled)
             {
@@ -69,6 +70,7 @@
             timer.Dispose();
         }
 
+        private readonly int _intervalMs;
         private Dictionary<string, Action> phase1Actions;
         private Dictionary<string, Action> phase2Actions;
         private System.Timers.Timer timer;

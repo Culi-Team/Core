@@ -7,5 +7,6 @@
         bool Value { get; }
 
         void RaiseValueUpdated();
+        event EventHandler ValueUpdated;
     }
 }

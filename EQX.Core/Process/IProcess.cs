@@ -7,6 +7,8 @@ namespace EQX.Core.Sequence
 
     public interface IProcess<TESequence> : ILogable, INameable, IProcessExecutor where TESequence : Enum
     {
+        int NotificationStartIndex { get; set; }
+
         /// <summary>
         /// Parent process of current process. It may be null if it's the Root Process
         /// </summary>

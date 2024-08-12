@@ -7,6 +7,10 @@ namespace EQX.Core.Sequence
 
     public interface IProcess<TESequence> : ILogable, INameable, IProcessExecutor where TESequence : Enum
     {
+        event AlarmWarningRaisedHandler? AlarmRaised;
+        event AlarmWarningRaisedHandler? WarningRaised;
+        event EventHandler? ProcessModeUpdated;
+
         int NotificationStartIndex { get; set; }
 
         /// <summary>
@@ -48,11 +52,9 @@ namespace EQX.Core.Sequence
         bool Start();
         bool Stop();
 
-        event AlarmWarningRaisedHandler? AlarmRaised;
         void RaiseAlarm(int alarmId);
         void RaiseAlarm(int alarmId, string alarmSource);
 
-        event AlarmWarningRaisedHandler? WarningRaised;
         void RaiseWarning(int warningId);
         void RaiseWarning(int warningId, string warningSource);
 

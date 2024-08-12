@@ -2,6 +2,7 @@
 {
     public class ActionAssignableTimer
     {
+        #region Constructor(s)
         public ActionAssignableTimer(int intervalMs)
         {
             _intervalMs = intervalMs;
@@ -10,7 +11,9 @@
 
             StartTimer(intervalMs);
         }
+        #endregion
 
+        #region Method(s)
         private void StartTimer(int intervalMs)
         {
             if (timer != null && timer.Enabled)
@@ -69,12 +72,15 @@
             timer.Stop();
             timer.Dispose();
         }
+        #endregion
 
+        #region Private(s)
         private readonly int _intervalMs;
         private Dictionary<string, Action> phase1Actions;
         private Dictionary<string, Action> phase2Actions;
         private System.Timers.Timer timer;
         private int count = 0;
         private int phaseNumber => count % 2;
+        #endregion
     }
 }

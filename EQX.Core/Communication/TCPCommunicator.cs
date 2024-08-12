@@ -10,20 +10,7 @@ namespace EQX.Core.Communication
 {
     public class TCPBasicCommunicator : IHandleConnection, IIdentifier
     {
-        public int Id { get; init; }
-        public string Name { get; init; }
-        public bool IsConnected
-        {
-            get
-            {
-                if (tcpClient == null) return false;
-                return tcpClient.Connected;
-            }
-        }
-
-        public IPAddress IPAddress { get; protected set; }
-        public int Port { get; protected set; }
-
+        #region Constructor(s)
         public TCPBasicCommunicator(int index, string name, IPAddress iPAddress, int port)
         {
             Id = index;
@@ -34,7 +21,24 @@ namespace EQX.Core.Communication
             tcpClient = new Socket(SocketType.Stream, ProtocolType.Tcp);
             _log = LogManager.GetLogger(Name);
         }
+        #endregion
 
+        #region Properties
+        public int Id { get; init; }
+        public string Name { get; init; }
+        public bool IsConnected
+        {
+            get
+            {
+                if (tcpClient == null) return false;
+                return tcpClient.Connected;
+            }
+        }
+        public IPAddress IPAddress { get; protected set; }
+        public int Port { get; protected set; }
+        #endregion
+
+        #region Method(s)
         public bool Connect()
         {
             if (tcpClient.Connected)
@@ -131,9 +135,11 @@ namespace EQX.Core.Communication
 
             return tcpClient.Receive(buffer);
         }
+        #endregion
 
+        #region Private(s)
         protected Socket tcpClient;
-
         private readonly ILog _log;
+        #endregion
     }
 }

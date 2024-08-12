@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace EQX.Core.Common
 {
     public class DataEncrypt
     {
+        #region Method(s)
         public static string EncryptString(string key, string plainText)
         {
             byte[] iv = new byte[16];
@@ -60,5 +57,6 @@ namespace EQX.Core.Common
                 }
             }
         }
+        #endregion
     }
 }

@@ -1,29 +1,14 @@
-﻿using System.Net.Sockets;
-using System.Net;
+﻿using System.Net;
 using System.Text;
 using log4net;
 using EQX.Core.Common;
 using SuperSimpleTcp;
-using System.Threading;
 
 namespace EQX.Core.Communication
 {
     public class TCPEventCommunicator : IHandleConnection, IIdentifier
     {
-        public int Id { get; init; }
-        public string Name { get; init; }
-        public bool IsConnected
-        {
-            get
-            {
-                if (tcpClient == null) return false;
-                return tcpClient.IsConnected;
-            }
-        }
-
-        public IPAddress IPAddress { get; protected set; }
-        public int Port { get; protected set; }
-
+        #region Constructor(s)
         public TCPEventCommunicator(int index, string name, IPAddress iPAddress, int port)
         {
             Id = index;
@@ -34,6 +19,23 @@ namespace EQX.Core.Communication
             _log = LogManager.GetLogger(Name);
             ClientInit();
         }
+        #endregion
+
+        #region Properties
+        public int Id { get; init; }
+        public string Name { get; init; }
+        public bool IsConnected
+        {
+            get
+            {
+                if (tcpClient == null) return false;
+                return tcpClient.IsConnected;
+            }
+        }
+        public IPAddress IPAddress { get; protected set; }
+        public int Port { get; protected set; }
+        #endregion
+
 
         public bool Connect()
         {
@@ -187,13 +189,6 @@ namespace EQX.Core.Communication
 
             }
         }
-
-        //public int ReadData(ref byte[] buffer)
-        //{
-        //    if (tcpClient.IsConnected == false) return -1;
-
-        //    return tcpClient.Receive(buffer);
-        //}
 
         protected SimpleTcpClient tcpClient;
 

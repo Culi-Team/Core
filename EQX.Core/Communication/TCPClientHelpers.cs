@@ -9,10 +9,8 @@ namespace EQX.Core.Communication
         /// <summary>
         /// key : endPoint format "xxx.xxx.xxx.xxx:port"
         /// </summary>
-        private static Dictionary<string, SimpleTcpClient> clientDictionary;
 
-        private static object _lock = new object();
-
+        #region Method(s)
         public static void AddClient(IPAddress iPAddress, uint port)
         {
             lock (_lock)
@@ -59,5 +57,11 @@ namespace EQX.Core.Communication
                 clientDictionary.Remove(endPoint);
             }
         }
+        #endregion
+
+        #region Private(s)
+        private static Dictionary<string, SimpleTcpClient> clientDictionary;
+        private static object _lock = new object();
+        #endregion
     }
 }

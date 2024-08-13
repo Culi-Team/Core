@@ -6,6 +6,8 @@ namespace EQX.Core.Vision.Algorithms
 
     public interface IVisionTool : IIdentifier, IAsyncRunnable
     {
+        //MicroMeter
+        double PixelSize { get; }
         string ErrorMessage { get; }
         ToolRunCallback ToolRunFinished { get; set; }
 

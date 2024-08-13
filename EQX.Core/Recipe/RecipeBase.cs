@@ -15,9 +15,7 @@ namespace EQX.Core.Recipe
             return new RecipeBase();
         }
 
-        public virtual void Save()
-        {
-        }
+        public virtual void Save(){}
 
         protected void OnRecipeChanged(object oldValue, object newValue, [CallerMemberName] string? propertyName = null)
         {

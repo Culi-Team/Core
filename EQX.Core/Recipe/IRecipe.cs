@@ -3,13 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EQX.Core.Recipe
 {
+    public delegate void RecipeChangedEventHandler(object oldValue, object newValue, string? propertyName = null);
+
     public interface IRecipe : IBackupable<IRecipe>, IIdentifier
     {
+        event RecipeChangedEventHandler? RecipeChanged;
     }
 
     public static class RecipeHelpers

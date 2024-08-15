@@ -64,7 +64,7 @@ namespace EQX.Core.Units
         {
             Name = name;
         }
-       
+
         #endregion
 
         #region Public methods
@@ -73,9 +73,27 @@ namespace EQX.Core.Units
             return (index - 1) % Columns + 1;
         }
 
+        public int GetColumn(TECellStatus status)
+        {
+            if (Cells.Any(c => c.Status.Equals(status)) == false) return -1;
+
+            int index = Cells.First(c => c.Status.Equals(status)).Id;
+
+            return GetColumn(index);
+        }
+
         public int GetRow(int index)
         {
             return (index - 1) / Columns + 1;
+        }
+
+        public int GetRow(TECellStatus status)
+        {
+            if (Cells.Any(c => c.Status.Equals(status)) == false) return -1;
+
+            int index = Cells.First(c => c.Status.Equals(status)).Id;
+
+            return GetRow(index);
         }
 
         public void GenerateCells()

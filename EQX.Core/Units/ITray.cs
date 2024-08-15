@@ -32,11 +32,27 @@ namespace EQX.Core.Units
         int GetRow(int index);
 
         /// <summary>
+        /// Get first Row number of cell by it's status
+        /// <param>return "-1" if no cell found</param>
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        int GetRow(TECellStatus status);
+
+        /// <summary>
         /// Get Column number of cell by its index
         /// </summary>
         /// <param name="index">Index of cell</param>
         /// <returns>Column of the cell</returns>
         int GetColumn(int index);
+
+        /// <summary>
+        /// Get first Column number of cell by it's status
+        /// <param>return "-1" if no cell found</param>
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        int GetColumn(TECellStatus status);
 
         void GenerateCells();
     }

@@ -14,8 +14,7 @@ namespace EQX.Core.Test
         [TestMethod]
         public void TestActionAssignableTimer()
         {
-            ActionAssignableTimer timer = new ActionAssignableTimer();
-            timer.StartTimer(1000);
+            ActionAssignableTimer timer = new ActionAssignableTimer(500);
 
             timer.EnableAction(
                 "console1",

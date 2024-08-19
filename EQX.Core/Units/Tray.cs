@@ -27,8 +27,6 @@ namespace EQX.Core.Units
 
         public string Name { get; }
 
-        private int rows;
-
         public event PropertyChangedEventHandler? PropertyChanged;
         private void OnPropertyChanged(string PropertyName)
         {
@@ -44,8 +42,7 @@ namespace EQX.Core.Units
                 OnPropertyChanged(nameof(Rows));
             }
         }
-        private int cols;
-
+        
         public int Columns
         {
             get => cols;
@@ -55,6 +52,7 @@ namespace EQX.Core.Units
                 OnPropertyChanged(nameof(Columns));
             }
         }
+
         public ETrayOrientation Orientation { get; set; }
         public IList<ITrayCell<TECellStatus>> Cells { get; set; }
         #endregion
@@ -64,7 +62,6 @@ namespace EQX.Core.Units
         {
             Name = name;
         }
-
         #endregion
 
         #region Public methods
@@ -145,6 +142,8 @@ namespace EQX.Core.Units
         #endregion
 
         #region Privates
+        private int rows;
+        private int cols;
         #endregion
     }
 }

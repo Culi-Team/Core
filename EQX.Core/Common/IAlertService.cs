@@ -2,6 +2,6 @@
 {
     public interface IAlertService 
     {
-        AlertModel GetById(string id);
+        AlertModel GetById(int id);
     }
 }

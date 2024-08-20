@@ -78,14 +78,16 @@ namespace EQX.Core.Units
         {
             if (index == -1) return -1;
 
-            return (index - 1) % Columns + 1;
+            int indexInList = Cells.ToList().FindIndex(c => c.Id == index);
+
+            return indexInList % Columns + 1;
         }
 
         public int GetFirstColumn(TECellStatus status)
         {
             if (Cells.Any(c => c.Status.Equals(status)) == false) return -1;
 
-            int index = Cells.First(c => c.Status.Equals(status)).Id;
+            int index = Cells.OrderBy(c => c.Id).First(c => c.Status.Equals(status)).Id;
 
             return GetColumn(index);
         }
@@ -94,14 +96,16 @@ namespace EQX.Core.Units
         {
             if (index == -1) return -1;
 
-            return (index - 1) / Columns + 1;
+            int indexInList = Cells.ToList().FindIndex(c => c.Id == index);
+
+            return indexInList / Columns + 1;
         }
 
         public int GetFirstRow(TECellStatus status)
         {
             if (Cells.Any(c => c.Status.Equals(status)) == false) return -1;
 
-            int index = Cells.First(c => c.Status.Equals(status)).Id;
+            int index = Cells.OrderBy(c => c.Id).First(c => c.Status.Equals(status)).Id;
 
             return GetRow(index);
         }

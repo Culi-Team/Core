@@ -24,8 +24,6 @@ namespace EQX.Core.Units
         /// </summary>
         IList<ITrayCell<TECellStatus>> Cells { get; set; }
 
-        int GetFirstIndex(TECellStatus status);
-
         /// <summary>
         /// Get Row number of cell by its index
         /// </summary>
@@ -39,7 +37,7 @@ namespace EQX.Core.Units
         /// </summary>
         /// <param name="status"></param>
         /// <returns></returns>
-        int GetFirstRow(TECellStatus status);
+        int GetRow(TECellStatus status);
 
         /// <summary>
         /// Get Column number of cell by its index
@@ -54,7 +52,7 @@ namespace EQX.Core.Units
         /// </summary>
         /// <param name="status"></param>
         /// <returns></returns>
-        int GetFirstColumn(TECellStatus status);
+        int GetColumn(TECellStatus status);
 
         void GenerateCells();
     }

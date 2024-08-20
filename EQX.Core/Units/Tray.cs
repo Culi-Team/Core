@@ -65,12 +65,23 @@ namespace EQX.Core.Units
         #endregion
 
         #region Public methods
+        public int GetFirstIndex(TECellStatus status)
+        {
+            if (Cells.Any(c => c.Status.Equals(status)) == false) return -1;
+
+            int index = Cells.OrderBy(c => c.Id).First(c => c.Status.Equals(status)).Id;
+
+            return index;
+        }
+
         public int GetColumn(int index)
         {
+            if (index == -1) return -1;
+
             return (index - 1) % Columns + 1;
         }
 
-        public int GetColumn(TECellStatus status)
+        public int GetFirstColumn(TECellStatus status)
         {
             if (Cells.Any(c => c.Status.Equals(status)) == false) return -1;
 
@@ -81,10 +92,12 @@ namespace EQX.Core.Units
 
         public int GetRow(int index)
         {
+            if (index == -1) return -1;
+
             return (index - 1) / Columns + 1;
         }
 
-        public int GetRow(TECellStatus status)
+        public int GetFirstRow(TECellStatus status)
         {
             if (Cells.Any(c => c.Status.Equals(status)) == false) return -1;
 

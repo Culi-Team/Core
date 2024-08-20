@@ -5,7 +5,7 @@ namespace EQX.Core.Common
     public class AlertModel
     {
         #region Properties
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Message { get; set; }
         public string AlertOverviewSource { get; set; }
         public Rectangle AlertOverviewHighlightRectangle { get; set; }

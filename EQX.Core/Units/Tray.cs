@@ -12,7 +12,6 @@ namespace EQX.Core.Units
     public class Tray<TECellStatus> : INotifyPropertyChanged, ITray<TECellStatus> where TECellStatus : Enum
     {
         #region Properties
-        [JsonIgnore]
         public TECellStatus this[uint index]
         {
             get
@@ -32,7 +31,6 @@ namespace EQX.Core.Units
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
-        [JsonIgnore]
         public int Rows
         {
             get => rows;
@@ -43,7 +41,6 @@ namespace EQX.Core.Units
             }
         }
 
-        [JsonIgnore]
         public int Columns
         {
             get => cols;
@@ -53,7 +50,6 @@ namespace EQX.Core.Units
                 OnPropertyChanged(nameof(Columns));
             }
         }
-        [JsonIgnore]
         public ETrayOrientation Orientation { get; set; }
         public IList<ITrayCell<TECellStatus>> Cells { get; set; }
         #endregion

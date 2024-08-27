@@ -32,7 +32,7 @@ namespace EQX.Core.Units
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
-
+        [JsonIgnore]
         public int Rows
         {
             get => rows;
@@ -42,7 +42,8 @@ namespace EQX.Core.Units
                 OnPropertyChanged(nameof(Rows));
             }
         }
-        
+
+        [JsonIgnore]
         public int Columns
         {
             get => cols;
@@ -52,7 +53,7 @@ namespace EQX.Core.Units
                 OnPropertyChanged(nameof(Columns));
             }
         }
-
+        [JsonIgnore]
         public ETrayOrientation Orientation { get; set; }
         public IList<ITrayCell<TECellStatus>> Cells { get; set; }
         #endregion

@@ -13,5 +13,6 @@
         /// User free to use
         /// </summary>
         int SpareTime { get; set; }
+        int TaktTimeCounter { get; set; }
     }
 }

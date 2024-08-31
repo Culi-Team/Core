@@ -36,6 +36,11 @@ namespace EQX.Core.Motion
         bool Stop(bool forceStop = true);
 
         bool AlarmReset();
+        /// <summary>
+        /// Is Axis On Position
+        /// </summary>
+        /// <param name="dPosition">Unit: mm</param>
+        /// <returns></returns>
         bool IsOnPosition(double dPosition);
     }
 }

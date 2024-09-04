@@ -9,6 +9,7 @@
             phase1Actions = new Dictionary<string, Action>();
             phase2Actions = new Dictionary<string, Action>();
 
+            timer = new System.Timers.Timer(intervalMs);
             StartTimer(intervalMs);
         }
         #endregion
@@ -16,13 +17,14 @@
         #region Method(s)
         private void StartTimer(int intervalMs)
         {
+            timer ??= new System.Timers.Timer(intervalMs);
+
             if (timer != null && timer.Enabled)
             {
                 return;
             }
 
-            timer = new System.Timers.Timer(intervalMs);
-            timer.Elapsed += Timer_Elapsed;
+            timer!.Elapsed += Timer_Elapsed;
             timer.Enabled = true;
         }
 
@@ -48,20 +50,24 @@
         {
             count++;
 
-            if (phaseNumber == 1)
+            try
             {
-                foreach (var action in phase1Actions)
+                if (phaseNumber == 1)
                 {
-                    action.Value();
+                    foreach (var action in phase1Actions)
+                    {
+                        action.Value();
+                    }
+                }
+                else
+                {
+                    foreach (var action in phase2Actions)
+                    {
+                        action.Value();
+                    }
                 }
             }
-            else
-            {
-                foreach (var action in phase2Actions)
-                {
-                    action.Value();
-                }
-            }
+            catch { }
         }
 
         public void StopTimer()

@@ -58,6 +58,7 @@ namespace EQX.Core.Sequence
         void RaiseWarning(int warningId);
         void RaiseWarning(int warningId, string warningSource);
 
+        bool WaitTimeOutOccurred { get; }
         /// <summary>
         /// Process wait for exactly timeout
         /// </summary>

@@ -3,5 +3,6 @@
     public interface IAlertService 
     {
         AlertModel GetById(int id);
+        void ChangeCulture(string culture);
     }
 }

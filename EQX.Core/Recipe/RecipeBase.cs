@@ -1,8 +1,9 @@
-﻿using System.Runtime.CompilerServices;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace EQX.Core.Recipe
 {
-    public class RecipeBase : IRecipe
+    public class RecipeBase : ObservableObject, IRecipe
     {
         public event RecipeChangedEventHandler? RecipeChanged;
 

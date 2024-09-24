@@ -2,7 +2,7 @@
 {
     public enum EProcessStatus
     {
-        None = 0,           // 0
+        None = 0,
         ToWarningDone = 1,
         //WarningDone,
         ToAlarmDone = 3,

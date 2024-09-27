@@ -153,6 +153,11 @@ namespace EQX.Core.Units
             }
             OnPropertyChanged(nameof(Cells));
         }
+
+        public void SetAllCell(TECellStatus status)
+        {
+            Cells.ToList().ForEach(c => c.Status = status);
+        }
         #endregion
 
         #region Privates

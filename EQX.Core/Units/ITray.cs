@@ -57,5 +57,6 @@ namespace EQX.Core.Units
         int GetFirstColumn(TECellStatus status);
 
         void GenerateCells();
+        void SetAllCell(TECellStatus status);
     }
 }

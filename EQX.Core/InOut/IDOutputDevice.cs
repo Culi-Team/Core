@@ -9,5 +9,7 @@ namespace EQX.Core.InOut
     {
         bool this[int index] { get; set; }
         List<IDOutput> Outputs { get; }
+
+        bool Initialize();
     }
 }

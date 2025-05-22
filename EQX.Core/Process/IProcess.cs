@@ -1,7 +1,8 @@
 ﻿using EQX.Core.Common;
+using EQX.Core.Sequence;
 using Newtonsoft.Json;
 
-namespace EQX.Core.Sequence
+namespace EQX.Core.Process
 {
     public delegate void AlarmWarningRaisedHandler(int alarmId, string alarmSource);
 
@@ -11,7 +12,11 @@ namespace EQX.Core.Sequence
         event AlarmWarningRaisedHandler? WarningRaised;
         event EventHandler? ProcessModeUpdated;
 
-        int NotificationStartIndex { get; set; }
+        /// <summary>
+        /// Notification start index of the process. 
+        /// <br/>It is used to notify the process status to the client (Alarm, warning, etc.)
+        /// </summary>
+        int NotifStartIndex { get; set; }
 
         /// <summary>
         /// Parent process of current process. It may be null if it's the Root Process
@@ -34,7 +39,7 @@ namespace EQX.Core.Sequence
         /// </summary>
         EProcessMode ProcessMode { get; set; }
         /// <summary>
-        /// Status of ProcessMode execution. ToStopDone / ToOriginDone...
+        /// Status of <see cref="ProcessMode"/>> execution. ToStopDone / ToOriginDone...
         /// </summary>
         EProcessStatus ProcessStatus { get; set; }
 
@@ -53,9 +58,19 @@ namespace EQX.Core.Sequence
         bool Stop();
 
         void RaiseAlarm(int alarmId);
+        /// <summary>
+        /// Raise alarm with name of the process that rasied the alarm
+        /// </summary>
+        /// <param name="alarmId">Alarm code</param>
+        /// <param name="alarmSource">Name of process that raised the alarm</param>
         void RaiseAlarm(int alarmId, string alarmSource);
 
         void RaiseWarning(int warningId);
+        /// <summary>
+        /// Raise warning with name of the process that rasied the alarm
+        /// </summary>
+        /// <param name="warningId">Warning code</param>
+        /// <param name="warningSource">Name of the process that rasied the warning</param>
         void RaiseWarning(int warningId, string warningSource);
 
         bool WaitTimeOutOccurred { get; }
@@ -69,6 +84,6 @@ namespace EQX.Core.Sequence
         /// </summary>
         /// <param name="timeout">time to wait (ms)</param>
         /// <param name="waitUntil">Action return true will break waiting</param>
-        void Wait(int timeout, Func<bool> waitUntil);
+        void Wait(int timeout, Func<bool>? waitUntil);
     }
 }

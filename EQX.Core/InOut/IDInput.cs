@@ -7,7 +7,7 @@
         bool Value { get; }
 
         void RaiseValueUpdated();
-        event EventHandler ValueUpdated;
-        event EventHandler ValueChanged;
+        event EventHandler? ValueUpdated;
+        event EventHandler? ValueChanged;
     }
 }

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EQX.Core.Device.RollerController
+namespace EQX.Core.Device.SpeedController
 {
-    public interface IRollerController : IHandleConnection , IIdentifier
+    public interface ISpeedController : IHandleConnection , IIdentifier
     {
         void Start();
         void Stop();

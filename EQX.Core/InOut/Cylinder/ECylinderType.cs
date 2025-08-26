@@ -2,12 +2,12 @@
 {
     /// <summary>
     /// <para/>Non Reverse :
-    /// <para/>    Forward = Up = Right = Grip = Algin = Lock = Flip
-    /// <para/>    Backward = Down = Left = Ungrip = Unalign = Unlock = Unflip
+    /// <para/>    Forward = Up = Right = Grip = Algin = Lock = Flip = Clamp
+    /// <para/>    Backward = Down = Left = Ungrip = Unalign = Unlock = Unflip = Unclamp
     /// 
     /// <para/>Reverse :
-    /// <para/>    Forward = Down = Left = Ungrip = Unalign = Unlock = Flip
-    /// <para/>    Backward = Up = Right = Grip = Algin = Lock = Unflip
+    /// <para/>    Forward = Down = Left = Ungrip = Unalign = Unlock = UnFlip = Unclamp
+    /// <para/>    Backward = Up = Right = Grip = Algin = Lock = Flip = Clamp
     /// </summary>
     public enum ECylinderType
     {
@@ -24,6 +24,8 @@
         LockUnlock,
         LockUnlockReverse,
         FlipUnflip, //Flip = 180°, Unflip = 0°
-        FlipUnflipReverse
+        FlipUnflipReverse,
+        ClampUnclamp,
+        ClampUnclampReverse
     }
 }

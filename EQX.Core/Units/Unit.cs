@@ -43,6 +43,11 @@ namespace EQX.Core.Units
         public const string Percentage = "%";
         #endregion
 
+        #region Volume
+        public const string Milliliter = "mL";
+        public const string Liter = "L";
+        #endregion
+
         public const string ETC = "";
     }
 }

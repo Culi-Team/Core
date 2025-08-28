@@ -33,6 +33,9 @@ namespace EQX.Core.Units
         #region Speed & Acceleration
         public const string mmPerSecond = "mm/s";
         public const string mmPerSecondSquare = "mm/s²";
+
+        public const string RevolutionsPerMinute = "rpm";
+        public const string RevolutionsPerMinutePerSecond = "rpm/s";
         #endregion
 
         #region Count
@@ -46,6 +49,11 @@ namespace EQX.Core.Units
         #region Volume
         public const string Milliliter = "mL";
         public const string Liter = "L";
+        #endregion
+
+        #region Pressure
+        public const string MilliPascal = "mPa";
+        public const string KiloPascal = "kPa";
         #endregion
 
         public const string ETC = "";

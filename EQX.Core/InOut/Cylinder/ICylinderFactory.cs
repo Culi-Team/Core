@@ -2,6 +2,6 @@
 {
     public interface ICylinderFactory
     {
-        ICylinder Create(IDInput? inForward, IDInput? inBackward, IDOutput? outForward, IDOutput? outBackward);
+        ICylinder Create(List<IDInput> inForward, List<IDInput> inBackward, IDOutput? outForward, IDOutput? outBackward);
     }
 }

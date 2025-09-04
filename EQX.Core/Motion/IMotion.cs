@@ -42,5 +42,7 @@ namespace EQX.Core.Motion
         /// <param name="dPosition">Unit: mm</param>
         /// <returns></returns>
         bool IsOnPosition(double dPosition);
+
+        bool ClearPosition();
     }
 }

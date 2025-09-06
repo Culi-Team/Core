@@ -6,8 +6,6 @@
         string Name { get; init; }
         bool Value { get; }
 
-        void Mapping(IDOutput dOutput);
-
         void RaiseValueUpdated();
         event EventHandler? ValueUpdated;
         event EventHandler? ValueChanged;

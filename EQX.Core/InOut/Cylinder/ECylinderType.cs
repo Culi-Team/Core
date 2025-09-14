@@ -26,6 +26,7 @@
         FlipUnflip, //Flip = 180°, Unflip = 0°
         FlipUnflipReverse,
         ClampUnclamp,
-        ClampUnclampReverse
+        ClampUnclampReverse,
+        OnOff
     }
 }

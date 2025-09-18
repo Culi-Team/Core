@@ -9,11 +9,11 @@ namespace EQX.Core.TorqueController
 {
     public interface ITorqueController : IIdentifier, IHandleConnection
     {
-        void SetTorque(int index , int torque);
-        void Jog(int index, int speed, bool isForward);
-        void Stop(int index);
-        void SetSpeed(int index, int speed);
-        void ResetAlarm(int index);
-        void Run(int index);
+        void SetTorque(double torque);
+        void Jog(int speed, bool isForward);
+        void Stop();
+        void SetSpeed(int speed);
+        void ResetAlarm();
+        void Run();
     }
 }

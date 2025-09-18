@@ -4,21 +4,17 @@ using NModbus.Serial;
 
 namespace EQX.Core.Communication.Modbus
 {
-    public class ModbusRTUCommunication : ModbusCommunicationBase
+    public class ModbusRTUCommunication : IModbusCommunication
     {
-        public override bool IsConnected
+        public bool IsConnected
         {
             get
             {
-                if(serialPort == null)
-                {
-                    return false;
-                }
+                if (serialPort == null) return false;
                 return serialPort.IsOpen;
             }
         }
-
-        public override IModbusMaster ModbusMaster { get; protected set; }
+        public IModbusMaster ModbusMaster { get; private set; }
 
         public ModbusRTUCommunication(string comPort, int baudRate = 9600, Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.One)
         {
@@ -29,13 +25,22 @@ namespace EQX.Core.Communication.Modbus
             _stopBits = stopBits;
         }
 
-        public override bool Connect()
+        public bool Connect()
         {
             try
             {
                 if (serialPort == null)
                 {
                     serialPort = new SerialPort(_comPort, _baudRate, _parity, _dataBits, _stopBits);
+                    serialPort.ReadTimeout = 3000;
+                    serialPort.WriteTimeout = 3000;
+                }
+
+                // Kiểm tra và đóng port nếu đã mở
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                    System.Threading.Thread.Sleep(100);
                 }
 
                 serialPort.Open();
@@ -49,15 +54,28 @@ namespace EQX.Core.Communication.Modbus
             }
         }
 
-        public override bool Disconnect()
+        public bool Disconnect()
         {
-            if (serialPort == null) return true;
-            if (serialPort.IsOpen)
+            try
             {
-                serialPort.Close();
-            }
+                if (serialPort == null) return true;
 
-            return true;
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                    System.Threading.Thread.Sleep(100);
+                }
+
+                serialPort.Dispose();
+                serialPort = null;
+                ModbusMaster = null;
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         #region Privates

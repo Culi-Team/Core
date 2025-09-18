@@ -10,7 +10,6 @@ namespace EQX.Core.Communication.Modbus
 {
     public interface IModbusCommunication : IHandleConnection
     {
-        bool IsConnected { get; }
         IModbusMaster ModbusMaster { get; }
     }
 }

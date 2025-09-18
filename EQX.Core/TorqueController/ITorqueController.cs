@@ -7,13 +7,24 @@ using System.Threading.Tasks;
 
 namespace EQX.Core.TorqueController
 {
+    public enum TorqueControlMode
+    {
+        SpeedMode = 0,
+        TorqueMode = 1
+    }
+
     public interface ITorqueController : IIdentifier, IHandleConnection
     {
-        void SetTorque(int index , int torque);
-        void Jog(int index, int speed, bool isForward);
-        void Stop(int index);
-        void SetSpeed(int index, int speed);
-        void ResetAlarm(int index);
-        void Run(int index);
+        void SetTorque(int torque);
+        void SetSpeed(int speed);
+
+        int GetValue();
+
+        void Jog(int speed, bool isForward);
+
+        void Run(bool isForward = true);
+        void Stop();
+
+        void ResetAlarm();
     }
 }

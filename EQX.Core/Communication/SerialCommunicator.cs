@@ -22,7 +22,7 @@ namespace EQX.Core.Communication
         #region Properties
         public int Id { get; set; }
         public string Name { get; set; }
-        public bool IsConnected => serialPort.IsOpen;
+        public bool IsConnected => serialPort == null ? false : serialPort.IsOpen;
         /// <summary>
         /// Serial Comport Communicator
         /// </summary>

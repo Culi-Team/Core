@@ -3,11 +3,14 @@ using System.Text;
 using log4net;
 using EQX.Core.Common;
 using SuperSimpleTcp;
+using EQX.Core.Robot;
 
 namespace EQX.Core.Communication
 {
     public class TCPEventCommunicator : IHandleConnection, IIdentifier
     {
+        public event MessageResponseHandler? OnMessageResponsed;
+
         #region Constructor(s)
         public TCPEventCommunicator(int index, string name, IPAddress iPAddress, int port)
         {
@@ -85,6 +88,7 @@ namespace EQX.Core.Communication
             string data = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
             Interlocked.Exchange(ref receivedData, data);
 
+            OnMessageResponsed?.Invoke(this, data);
             _log.Info($"Data received from {Name}: \"{data.Replace("\r\n", "\\r\\n")}\"");
         }
 

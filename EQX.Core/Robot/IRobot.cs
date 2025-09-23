@@ -2,7 +2,7 @@
 
 namespace EQX.Core.Robot
 {
-    public delegate void RobotResponseHandler(object sender, string response);
+    public delegate void MessageResponseHandler(object sender, string response);
 
     public interface IRobot : IIdentifier, IHandleConnection
     {
@@ -19,7 +19,8 @@ namespace EQX.Core.Robot
         /// <returns></returns>
         string ReadResponse(int timeoutMs);
         bool ReadResponse(int timeoutMs, string expectedResponse);
-        
-        RobotResponseHandler? OnRobotResponsed { get; }
-    }
+
+        MessageResponseHandler? OnRobotResponsed { get; }
+        string ResponseMessage { get; }
+        }
 }

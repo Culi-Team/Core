@@ -20,7 +20,7 @@ namespace EQX.Core.Robot
         string ReadResponse(int timeoutMs);
         bool ReadResponse(int timeoutMs, string expectedResponse);
 
-        MessageResponseHandler? OnRobotResponsed { get; }
+        event MessageResponseHandler? OnRobotResponsed;
         string ResponseMessage { get; }
-        }
+    }
 }

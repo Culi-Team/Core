@@ -1,6 +1,7 @@
 ﻿using NModbus;
 using System.IO.Ports;
 using NModbus.Serial;
+using System.Net.Http;
 
 namespace EQX.Core.Communication.Modbus
 {

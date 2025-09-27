@@ -150,7 +150,7 @@ namespace EQX.Core.Communication
 
             // Clear receivedData from server reading new Data
             Interlocked.Exchange(ref receivedData, string.Empty);
-
+            
             while (true)
             {
                 if (Environment.TickCount - startMs > timeoutMs)

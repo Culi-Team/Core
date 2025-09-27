@@ -3,8 +3,6 @@ using System.Net;
 using System.Text;
 using log4net;
 using EQX.Core.Common;
-using System.Drawing;
-using System;
 
 namespace EQX.Core.Communication
 {

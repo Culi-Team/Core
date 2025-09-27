@@ -70,6 +70,10 @@ namespace EQX.Core.Communication
             serialPort.Write(message);
         }
 
+        public void Write(byte[] message)
+        {
+            serialPort.Write(message, 0, message.Length);
+        }
         public void WriteLine(string message)
         {
             serialPort.WriteLine(message);

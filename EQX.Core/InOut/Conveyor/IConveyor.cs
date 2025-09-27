@@ -1,6 +1,8 @@
-﻿namespace EQX.Core.InOut
+﻿using EQX.Core.Common;
+
+namespace EQX.Core.InOut
 {
-    public interface IConveyor
+    public interface IConveyor : INameable
     {
         bool IsError { get; }
         void Run();

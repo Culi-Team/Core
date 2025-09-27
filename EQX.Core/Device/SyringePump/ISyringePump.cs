@@ -11,5 +11,6 @@ namespace EQX.Core.Device.SyringePump
         void Fill(double volume);
         void Home();
         void QueryStatus();
+        void SetSpeed(int speed);
     }
 }

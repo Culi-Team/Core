@@ -86,7 +86,7 @@ namespace EQX.Core.Process
         /// <param name="waitUntil">Action return true will break waiting</param>
         void Wait(int timeout, Func<bool>? waitUntil);
 
-        bool IsAlarm { get; }
+        bool IsAlarm { get; set; }
 
         bool IsOriginOrInitSelected { get; set; }
     }

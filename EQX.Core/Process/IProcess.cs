@@ -88,6 +88,8 @@ namespace EQX.Core.Process
 
         bool IsAlarm { get; set; }
 
+        bool IsWarning { get;set; }
+
         bool IsOriginOrInitSelected { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     public interface IMotionController
     {
-        ulong DeviceId { get; }
+        ulong ControllerId { get; }
 
         bool IsConnected { get; }
 

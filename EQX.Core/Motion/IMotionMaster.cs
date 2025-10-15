@@ -1,6 +1,6 @@
 ﻿namespace EQX.Core.Motion
 {
-    public interface IMotionController
+    public interface IMotionMaster
     {
         ulong ControllerId { get; }
 

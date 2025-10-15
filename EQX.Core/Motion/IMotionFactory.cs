@@ -6,4 +6,9 @@ namespace EQX.Motion
     {
         IMotion Create(int id, string name, IMotionParameter parameter);
     }
+
+    public interface IMotionFactoryWithMaster<IMotion> : IMotionFactory<IMotion>
+    {
+        IMotionMaster MotionMaster { get; }
+    }
 }

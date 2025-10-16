@@ -17,6 +17,11 @@
         double Velocity { get; set; }
 
         /// <summary>
+        /// Reduce gear ratio
+        /// </summary>
+        uint ReduceGearRatio { get; set; }
+
+        /// <summary>
         /// Motion max velocity
         /// </summary>
         double MaxVelocity { get; set; }

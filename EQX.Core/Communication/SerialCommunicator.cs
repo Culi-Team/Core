@@ -1,5 +1,8 @@
 ﻿using EQX.Core.Common;
+using System;
+using System.Diagnostics;
 using System.IO.Ports;
+using System.Text;
 
 namespace EQX.Core.Communication
 {
@@ -43,6 +46,23 @@ namespace EQX.Core.Communication
                 if (serialPort == null)
                 {
                     serialPort = new SerialPort(_comPort, _baudRate, _parity, _dataBits, _stopBits);
+
+                    //serialPort.DataReceived += (s, e) =>
+                    //{
+                    //    // Handle data received event if needed
+                    //    SerialPort sp = (SerialPort)s;
+
+                    //    // Use ReadExisting() to get all the data currently in the buffer
+                    //    string indata = sp.ReadExisting();
+
+                    //    byte[] bytes = Encoding.Default.GetBytes(indata);
+                    //    Debug.Write($"Data Received: [ ");
+                    //    foreach (byte b in bytes)
+                    //    {
+                    //        Debug.Write($"{b:X2} ");
+                    //    }
+                    //    Debug.WriteLine(" ]\r\n");
+                    //};
                 }
 
                 serialPort.Open();
@@ -67,16 +87,19 @@ namespace EQX.Core.Communication
 
         public void Write(string message)
         {
-            serialPort.Write(message);
+            Write(System.Text.Encoding.UTF8.GetBytes(message));
         }
 
         public void Write(byte[] message)
         {
-            serialPort.Write(message, 0, message.Length);
+            lock (writeLock)
+            {
+                serialPort.Write(message, 0, message.Length);
+            }
         }
         public void WriteLine(string message)
         {
-            serialPort.WriteLine(message);
+            Write(System.Text.Encoding.UTF8.GetBytes(message + "\r\n"));
         }
 
         public string ReadLine()
@@ -102,6 +125,8 @@ namespace EQX.Core.Communication
         private readonly Parity _parity;
         private readonly int _dataBits;
         private readonly StopBits _stopBits;
+
+        private object writeLock = new object();
         #endregion
     }
 }

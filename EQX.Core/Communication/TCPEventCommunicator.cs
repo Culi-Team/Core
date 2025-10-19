@@ -50,7 +50,7 @@ namespace EQX.Core.Communication
 
             try
             {
-                tcpClient.ConnectWithRetries(2000);
+                tcpClient.ConnectWithRetries(5000);
                 _log.Info($"Connect to device {Name} success.");
                 return true;
             }
@@ -73,6 +73,11 @@ namespace EQX.Core.Communication
                 TCPClientHelpers.AddClient(IPAddress, (uint)Port);
 
             tcpClient = TCPClientHelpers.GetClient(IPAddress, (uint)Port);
+
+            tcpClient!.Events.DataSent -= Events_DataSent;
+            tcpClient!.Events.Connected -= Events_Connected;
+            tcpClient!.Events.Disconnected -= Events_Disconnected;
+            tcpClient!.Events.DataReceived -= Events_DataReceived;
 
             tcpClient!.Events.DataSent += Events_DataSent;
             tcpClient!.Events.Connected += Events_Connected;

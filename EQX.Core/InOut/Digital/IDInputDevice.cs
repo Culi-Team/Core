@@ -11,5 +11,8 @@ namespace EQX.Core.InOut
         List<IDInput> Inputs { get; }
 
         bool Initialize();
+
+        void InverseStatus(IDInput input);
+        void InverseStatus(IList<IDInput> inputs);
     }
 }

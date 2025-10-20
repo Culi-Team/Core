@@ -11,5 +11,6 @@ namespace EQX.Core.InOut
         List<IDOutput> Outputs { get; }
 
         bool Initialize();
+        void ClearOutputs();
     }
 }

@@ -7,7 +7,18 @@ namespace EQX.Core.InOut
     /// </summary>
     public interface IDInputDevice : IIdentifier, IHandleConnection
     {
+        /// <summary>
+        /// Return value of IDInput at specified index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         bool this[int index] { get; }
+        /// <summary>
+        /// Return IDInput by enum key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        IDInput this[Enum key] { get; }
         List<IDInput> Inputs { get; }
 
         bool Initialize();

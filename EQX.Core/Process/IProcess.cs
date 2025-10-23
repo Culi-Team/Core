@@ -57,6 +57,7 @@ namespace EQX.Core.Process
         bool Start();
         bool Stop();
 
+        void RaiseAlarm(Enum alarmCode);
         void RaiseAlarm(int alarmId);
         /// <summary>
         /// Raise alarm with name of the process that rasied the alarm
@@ -65,6 +66,7 @@ namespace EQX.Core.Process
         /// <param name="alarmSource">Name of process that raised the alarm</param>
         void RaiseAlarm(int alarmId, string alarmSource);
 
+        void RaiseWarning(Enum warningCode);
         void RaiseWarning(int warningId);
         /// <summary>
         /// Raise warning with name of the process that rasied the alarm

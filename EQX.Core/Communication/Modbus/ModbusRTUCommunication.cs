@@ -32,8 +32,8 @@ namespace EQX.Core.Communication.Modbus
                 if (serialPort == null)
                 {
                     serialPort = new SerialPort(_comPort, _baudRate, _parity, _dataBits, _stopBits);
-                    serialPort.ReadTimeout = 3000;
-                    serialPort.WriteTimeout = 3000;
+                    serialPort.ReadTimeout = 1000;
+                    serialPort.WriteTimeout = 1000;
                 }
 
                 // Kiểm tra và đóng port nếu đã mở

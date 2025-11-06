@@ -15,5 +15,6 @@
         double ActualPosition { get; }
         double PositionError { get; }
         double ActualVelocity {  get; }
+
     }
 }

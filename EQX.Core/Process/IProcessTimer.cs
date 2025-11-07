@@ -2,7 +2,13 @@
 {
     public interface IProcessTimer
     {
+        /// <summary>
+        /// In milisecond (ms)
+        /// </summary>
         int StepElapsedTime { get; }
+        /// <summary>
+        /// In milisecond (ms)
+        /// </summary>
         int StepStartTime { get; }
         /// <summary>
         /// Set wait time for waiting before running next step

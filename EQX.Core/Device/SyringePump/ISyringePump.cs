@@ -13,6 +13,7 @@ namespace EQX.Core.Device.SyringePump
         void SetAcceleration(int accCode);
         void SetDeccelation(int decCode);
 
+        void Dispense(double volume, int[] ports);
         bool IsReady();
     }
 }

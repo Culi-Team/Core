@@ -4,5 +4,8 @@
     {
         AlertModel GetById(int id);
         void ChangeCulture(string culture);
+        IReadOnlyCollection<string> SupportedCultures { get; }
+        string CurrentCulture { get; }
+        AlertValidationResult ValidateCurrentData();
     }
 }
